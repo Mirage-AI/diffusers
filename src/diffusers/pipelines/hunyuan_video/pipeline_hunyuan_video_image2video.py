@@ -763,7 +763,7 @@ class HunyuanVideoImageToVideoPipeline(DiffusionPipeline, HunyuanVideoLoraLoader
         vae_dtype = self.vae.dtype
         image_tensor = self.video_processor.preprocess(image, height, width).to(device, vae_dtype)
 
-        num_channels_latents = 32
+        num_channels_latents = 16
         if image_condition_type == "latent_concat":
             num_channels_latents = (self.transformer.config.in_channels - 1) // 2
         elif image_condition_type == "token_replace":
